@@ -49,10 +49,14 @@
 
 
 
-
+  <div style="margin-top: 110px" class="container d-flex justify-content-end">
     <button type="button" class="btn btn-primary m-3" data-bs-toggle="modal" data-bs-target="#addModal">
         Aggiungi Prodotto
     </button>
+  </div>
+    
+
+    
 
     <!-- Modal -->
     <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
@@ -88,7 +92,7 @@
     </div>
 
     <!-- Card -->
-    <div id="cardsContainer" class="container d-flex flex-wrap mt-5 mb-5">
+    <div id="cardsContainer" class="container d-flex flex-wrap mt-2 mb-5">
     </div>
     
 
