@@ -1,0 +1,11 @@
+#map {
+    height: 60%;
+    width: 60%;
+
+  }
+
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }

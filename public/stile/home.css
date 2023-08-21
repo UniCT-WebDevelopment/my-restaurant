@@ -1,0 +1,22 @@
+.navbar-nav {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ADD8E6;
+}
+
+.navbar-nav .nav-item:not(:first-child) {
+    margin-left: 10px; /* Regola lo spazio tra gli elementi della navbar */
+}
+
+.nav-text-color{
+    color: #ADD8E6;
+}
+
+.nascondi{
+    display: none;
+}
+
+body{
+    background-color: #ADD8E6;
+}

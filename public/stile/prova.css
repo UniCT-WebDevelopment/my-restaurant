@@ -1,0 +1,15 @@
+.navbar-nav {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar-nav .nav-item:not(:first-child) {
+    margin-left: 10px;
+}
+
+.carousel-inner > .item{
+    min-height: 600px;
+}
+
+

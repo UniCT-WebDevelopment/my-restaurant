@@ -1,0 +1,30 @@
+body{
+    background-image: url('../img/sfondo/c4.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow-y: hidden;
+}
+
+.custom-box {
+    width: 200px;
+    height: 150px;
+    background-color: #d12525; /* Colore di sfondo del div */
+    border-radius: 10px; /* Bordo arrotondato per l'effetto di rilievo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra per l'effetto di rilievo */
+    transform: perspective(1000px) rotateX(20deg); /* Effetto di rilievo 3D */
+  }
+  
+.container{
+    max-width: fit-content;
+    height: fit-content;
+}
+
+.nascondi{
+    display: none;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
