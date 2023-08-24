@@ -40,16 +40,14 @@ function createProductCard(product){
     cardBodyElement.classList.add('card-body');
 
     // ID
-    const idLabel = document.createElement('label');
-    idLabel.textContent = 'ID';
     const idInput = document.createElement('input');
     idInput.type = 'text';
     idInput.classList.add('form-control');
+    idInput.classList.add('d-none');
     idInput.id = 'id';
     idInput.name = 'id';
     idInput.value = product.id;
     //idInput.disabled = true;
-    cardBodyElement.appendChild(idLabel);
     cardBodyElement.appendChild(idInput);
 
     // Nome
@@ -130,7 +128,7 @@ function createProductCard(product){
     cardBodyElement.appendChild(deleteButton);
 
     // Aggiunta di tutti gli elementi al form
-    const inputElements = [csrfField, idLabel, idInput, nameLabel, nameInput, ingredientsLabel, ingredientsTextarea, prezzoLabel, prezzoInput, categoryLabel, categoryInput, imageLabel, imageInput, modifyButton, deleteButton];
+    const inputElements = [csrfField, idInput, nameLabel, nameInput, ingredientsLabel, ingredientsTextarea, prezzoLabel, prezzoInput, categoryLabel, categoryInput, imageLabel, imageInput, modifyButton, deleteButton];
     inputElements.forEach(input => {
         formElement.appendChild(input);
     });
