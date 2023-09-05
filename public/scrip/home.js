@@ -174,6 +174,14 @@ function show(data){
 
 function productsData(data){
     show(data);
+    const searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('input', function () {
+    const searchText = searchInput.value.toLowerCase(); // Converte il testo di ricerca in minuscolo per una corrispondenza case-insensitive
+    const filteredProducts = data.filter(product => {
+        return product.nome.toLowerCase().includes(searchText);
+    });
+    show(filteredProducts);
+});
 }
 
 function productsResponse(response){
@@ -181,5 +189,6 @@ function productsResponse(response){
 }
 
 fetch(BASE_URL + 'products').then(productsResponse).then(productsData);
+
 
 
