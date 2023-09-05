@@ -120,11 +120,30 @@ function createProductCard(product){
     cardBodyElement.appendChild(modifyButton);
 
     // Pulsante "Elimina"
-    const deleteButton = document.createElement('input');
-    deleteButton.type = 'submit';
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
     deleteButton.classList.add('btn', 'btn-danger', 'mt-2', 'position-absolute', 'end-0', 'me-2');
-    deleteButton.value = 'Elimina';
-    deleteButton.formAction = BASE_URL + 'delete';
+    deleteButton.textContent = 'Elimina'; // Utilizza textContent per impostare il testo del pulsante
+    deleteButton.setAttribute('data-toggle', 'modal'); // Aggiungi l'attributo data-toggle
+    deleteButton.setAttribute('data-target', '#deleteModal');
+
+    deleteButton.addEventListener('click', function () {
+        // Mostra la modal di conferma
+        const deleteModal = document.querySelector('#deleteModal');
+        formElement.action = BASE_URL + 'delete';
+
+        // Apri la modal di conferma
+        const modal = new bootstrap.Modal(deleteModal);
+        modal.show();
+
+        // Aggiungi un event listener per l'azione di eliminazione effettiva
+        const confirmDeleteButton = document.querySelector('#confirmDelete');
+        confirmDeleteButton.addEventListener('click', function () {
+            // Invia il modulo
+            formElement.submit();
+        });
+    });
+
     cardBodyElement.appendChild(deleteButton);
 
     // Aggiunta di tutti gli elementi al form
@@ -132,6 +151,7 @@ function createProductCard(product){
     inputElements.forEach(input => {
         formElement.appendChild(input);
     });
+
 
 
     cardElement.appendChild(cardBodyElement);
@@ -161,3 +181,5 @@ function productsResponse(response){
 }
 
 fetch(BASE_URL + 'products').then(productsResponse).then(productsData);
+
+
