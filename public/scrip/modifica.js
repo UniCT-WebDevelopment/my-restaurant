@@ -11,7 +11,6 @@ function createProductCard(product){
         csrfField.type = 'hidden';
         csrfField.name = '_token'; // Assicurati che il nome sia '_token' per essere compatibile con Laravel
         csrfField.value = window.csrfToken; // Questo inserisce il token CSRF generato da Laravel nel campo
-        console.log(csrfField.value);
         formElement.appendChild(csrfField);
     
         // Card
@@ -26,7 +25,7 @@ function createProductCard(product){
     
         // Immagine
         const imgElement = document.createElement('img');
-        imgElement.src = product.percorso_img;
+        imgElement.src = '../' + product.percorso_img;
         imgElement.style.width = '100%'; // Immagine si adatta alla larghezza del div
         imgElement.style.height = '100%'; // Immagine si adatta all'altezza del div
         imgElement.classList.add('card-img-top');
@@ -37,7 +36,7 @@ function createProductCard(product){
     
         // BodyCard
         const cardBodyElement = document.createElement('div');
-        cardBodyElement.classList.add('card-body');
+        cardBodyElement.classList.add('card-body', 'm-0', 'p-0');
     
         // ID
         const idInput = document.createElement('input');
@@ -152,10 +151,9 @@ function createProductCard(product){
             formElement.appendChild(input);
         });
     
-    
+        cardBodyElement.appendChild(formElement);
     
         cardElement.appendChild(cardBodyElement);
-        cardElement.appendChild(formElement);
         return cardElement;
     }
     
@@ -166,9 +164,7 @@ function createProductCard(product){
             cardsContainer.textContent = 'Nessuna prodotto';
             return;
         }
-        for(product of data){
-            cardsContainer.append(createProductCard(product));
-        }
+        cardsContainer.append(createProductCard(data));
     }
     
     
@@ -182,7 +178,6 @@ function createProductCard(product){
     
     const id = document.getElementById('input');
     
-    console.log(BASE_URL + 'home/modifica/' +id.value);
     fetch(BASE_URL + 'home/modifica/' +id.value).then(productsResponse).then(productsData);
     
     

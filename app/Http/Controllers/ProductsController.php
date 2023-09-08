@@ -61,11 +61,10 @@ class ProductsController extends BaseController{
 
     public function modifyProduct($productId){
         $product = Product::find($productId);
-        echo $product;
         if (!$product) {
             return response()->json(['error' => 'product not found'], 404);
         }
-        return $product;
+        return response()->json($product);
     }
 
     public function delete(){

@@ -13,16 +13,16 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg bg-dark border-bottom border-body fixed-top" data-bs-theme="dark">
-<div class="container-fluid">
+<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <img src="{{ url('img/logo/pizza.png') }}" alt="Logo" style="width:80px; height: 80px">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse d-flex justify-content-around" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+      <li class="nav-item">
           <a class="nav-link fs-5 active" aria-current="page" id="home" href="home">Home</a>
         </li>
         <li class="nav-item">
@@ -34,12 +34,10 @@
         <li class="nav-item">
           <a class="nav-link fs-5" href="consegne">Consegne</a>
         </li>
-        
         <li class="nav-item">
           <a class="nav-link fs-5" href="logout">Logout</a>
         </li>
       </ul>
-      
     </div>
   </div>
 </nav>
@@ -54,43 +52,7 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
         Aggiungi Prodotto
     </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="addModalLabel">Aggiungi</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form method="post">
-                  <div class="modal-body d-flex flex-column">
-                      @csrf
-                      <label for="nome"> Nome </label>
-                      <input type="text" name="nome" id="nome">
-
-                      <label for="ingredienti"> Ingredienti </label>
-                      <input type="text" name="ingredienti" id="ingredienti">
-
-                      <label for="prezzo"> Prezzo </label>
-                      <input type="text" name="prezzo" id="prezzo">
-
-                      <label for="categoria"> Categoria </label>
-                      <input type="text" name="categoria" id="categoria">
-                      
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
-                      <button type="submit" id="add" class="btn btn-primary">Aggiungi</button>
-                  </div>
-              </form>
-          </div>
-      </div>
-    </div>
-
   </div>
-
-</div>
 
 
 <!-- Card -->
