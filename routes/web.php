@@ -20,6 +20,7 @@ Route::post('home', 'App\Http\Controllers\ProductsController@add');
 Route::post('delete', 'App\Http\Controllers\ProductsController@delete');
 Route::post('home/modifica', 'App\Http\Controllers\ProductsController@modify');
 Route::get('home/modifica/{productId}', 'App\Http\Controllers\ProductsController@modifyProduct');
+Route::post('home/modifica/{productId}', 'App\Http\Controllers\ProductsController@saveChange');
 
 
 Route::get('menu', 'App\Http\Controllers\MenuController@menu');

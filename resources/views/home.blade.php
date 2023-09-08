@@ -54,6 +54,42 @@
     </button>
   </div>
 
+  <!-- Modal --> 
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true"> 
+    <div class="modal-dialog"> 
+        <div class="modal-content"> 
+            <div class="modal-header"> 
+                <h1 class="modal-title fs-5" id="addModalLabel">Aggiungi</h1> 
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+            </div> 
+            <form method="post" enctype="multipart/form-data"> 
+                <div class="modal-body d-flex flex-column"> 
+                    @csrf 
+                    <label for="nome"> Nome </label> 
+                    <input type="text" name="nome" id="nome"> 
+ 
+                    <label for="ingredienti"> Ingredienti </label> 
+                    <input type="text" name="ingredienti" id="ingredienti"> 
+ 
+                    <label for="prezzo"> Prezzo </label> 
+                    <input type="text" name="prezzo" id="prezzo"> 
+ 
+                    <label for="categoria"> Categoria </label> 
+                    <input type="text" name="categoria" id="categoria">
+
+                    <label for="img"> Immagine </label> 
+                    <input type="file" name="img" id="img"> 
+                     
+                </div> 
+                <div class="modal-footer"> 
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button> 
+                    <button type="submit" id="add" class="btn btn-primary">Aggiungi</button> 
+                </div> 
+            </form> 
+        </div> 
+    </div> 
+    </div>
+
 
 <!-- Card -->
 <div id="cardsContainer" class="container d-flex flex-wrap mt-2 mb-5">

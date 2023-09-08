@@ -45,7 +45,26 @@
 <div class="d-flex justify-content-center mt-2">
 <div id="cardsContainer" class="container d-flex justify-content-center"></div>
 </div>
-<!-- Card -->
+
+<!-- Modal di conferma eliminazione -->
+<div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="modifyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modifyModalLabel">Conferma eliminazione</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Chiudi">
+            </div>
+            <div class="modal-body">
+                Sei sicuro di voler modificare questo prodotto?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                
+                <button type="button" class="btn btn-danger" id="confirmUpdate">Sì, modifica</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

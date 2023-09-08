@@ -4,6 +4,7 @@ function createProductCard(product){
         // Form
         const formElement = document.createElement('form');
         formElement.method = 'POST';
+        formElement.setAttribute('enctype', 'multipart/form-data');
         formElement.classList.add('p-2');
     
         // CSFR
@@ -16,7 +17,7 @@ function createProductCard(product){
         // Card
         const cardElement = document.createElement('div');
         cardElement.classList.add('card', 'mt-2', 'ms-4');
-        cardElement.style.width = '18rem';
+        cardElement.style.width = '25rem';
     
         // Div immagine
         const imgDiv = document.createElement('div');
@@ -100,53 +101,44 @@ function createProductCard(product){
         const imageLabel = document.createElement('label');
         imageLabel.textContent = 'Immagine';
         const imageInput = document.createElement('input');
-        imageInput.type = 'text';
+        imageInput.type = 'file'; // Cambia il tipo da 'text' a 'file'
         imageInput.classList.add('form-control');
         imageInput.id = 'immagine';
         imageInput.name = 'immagine';
-        const imagePath = product.percorso_img;
-        const fileName = imagePath.split('/').pop();
-        imageInput.value = fileName;
+        //imageInput.accept = 'image/*'; // Specifica i tipi di file accettati (immagini)
         cardBodyElement.appendChild(imageLabel);
         cardBodyElement.appendChild(imageInput);
+
     
         // Pulsante "Modifica"
-        const modifyButton = document.createElement('input');
-        modifyButton.type = 'submit';
-        modifyButton.classList.add('btn', 'btn-primary', 'mt-2');
-        modifyButton.value = 'Modifica';
-        modifyButton.formAction = BASE_URL+'update';
+        const modifyButton = document.createElement('button');
+        modifyButton.type = 'button';
+        modifyButton.classList.add('btn', 'btn-primary', 'mt-2','w-100');
+        modifyButton.textContent = 'Modifica';
+        //modifyButton.formAction = BASE_URL+'home/modifica/' + encodeURIComponent(product.id);
+        modifyButton.setAttribute('data-toggle', 'modal'); // Aggiungi l'attributo data-toggle
+        modifyButton.setAttribute('data-target', '#modifyModal');
         cardBodyElement.appendChild(modifyButton);
-    
-        // Pulsante "Elimina"
-        const deleteButton = document.createElement('button');
-        deleteButton.type = 'button';
-        deleteButton.classList.add('btn', 'btn-danger', 'mt-2', 'position-absolute', 'end-0', 'me-2');
-        deleteButton.textContent = 'Elimina'; // Utilizza textContent per impostare il testo del pulsante
-        deleteButton.setAttribute('data-toggle', 'modal'); // Aggiungi l'attributo data-toggle
-        deleteButton.setAttribute('data-target', '#deleteModal');
-    
-        deleteButton.addEventListener('click', function () {
+
+        modifyButton.addEventListener('click', function () {
             // Mostra la modal di conferma
-            const deleteModal = document.querySelector('#deleteModal');
-            formElement.action = BASE_URL + 'delete';
+            const modifyModal = document.querySelector('#modifyModal');
+            formElement.action = BASE_URL+'home/modifica/' + encodeURIComponent(product.id);;
     
             // Apri la modal di conferma
-            const modal = new bootstrap.Modal(deleteModal);
+            const modal = new bootstrap.Modal(modifyModal);
             modal.show();
     
             // Aggiungi un event listener per l'azione di eliminazione effettiva
-            const confirmDeleteButton = document.querySelector('#confirmDelete');
-            confirmDeleteButton.addEventListener('click', function () {
+            const confirmUpdateButton = document.querySelector('#confirmUpdate');
+            confirmUpdateButton.addEventListener('click', function () {
                 // Invia il modulo
                 formElement.submit();
             });
         });
     
-        cardBodyElement.appendChild(deleteButton);
-    
         // Aggiunta di tutti gli elementi al form
-        const inputElements = [csrfField, idInput, nameLabel, nameInput, ingredientsLabel, ingredientsTextarea, prezzoLabel, prezzoInput, categoryLabel, categoryInput, imageLabel, imageInput, modifyButton, deleteButton];
+        const inputElements = [csrfField, idInput, nameLabel, nameInput, ingredientsLabel, ingredientsTextarea, prezzoLabel, prezzoInput, categoryLabel, categoryInput, imageLabel, imageInput, modifyButton];
         inputElements.forEach(input => {
             formElement.appendChild(input);
         });
