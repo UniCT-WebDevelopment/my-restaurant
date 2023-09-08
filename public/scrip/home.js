@@ -225,11 +225,20 @@ function createProductCard(product){
     cardBodyElement.appendChild(idInput);
     
     // Pulsante "Modifica"
-    const modifyButton = document.createElement('input');
-    modifyButton.type = 'submit';
+    const modifyButton = document.createElement('button');
+    modifyButton.type = 'button';
     modifyButton.classList.add('btn', 'btn-primary');
-    modifyButton.value = 'Modifica';
-    modifyButton.formAction = BASE_URL+'update';
+    modifyButton.textContent = 'Modifica';
+
+    modifyButton.addEventListener('click', ()=>{
+        formElement.action = BASE_URL + 'home/modifica';
+        formElement.submit();
+        /*
+        const currentURL = window.location.href; 
+        const segments = currentURL.split('/');
+        const valore = segments[segments.length - 1];
+        console.log(valore);*/
+    });
     cardBodyElement.appendChild(modifyButton);
 
     // Pulsante "Elimina"

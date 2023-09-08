@@ -16,8 +16,10 @@ Route::get('logout', 'App\Http\Controllers\LoginController@logout');
 Route::get('home', 'App\Http\Controllers\ProductsController@home');
 Route::get('products', 'App\Http\Controllers\ProductsController@show_products');
 Route::post('home', 'App\Http\Controllers\ProductsController@add');
-Route::post('update', 'App\Http\Controllers\ProductsController@modify');
+//Route::post('update', 'App\Http\Controllers\ProductsController@modify');
 Route::post('delete', 'App\Http\Controllers\ProductsController@delete');
+Route::post('home/modifica', 'App\Http\Controllers\ProductsController@modify');
+Route::get('home/modifica/{productId}', 'App\Http\Controllers\ProductsController@modifyProduct');
 
 
 Route::get('menu', 'App\Http\Controllers\MenuController@menu');

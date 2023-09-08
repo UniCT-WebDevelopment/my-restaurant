@@ -42,7 +42,7 @@ class ProductsController extends BaseController{
         return view('home');
     }
 
-    public function modify(){
+    /*public function modify(){
         $product = Product::find(request('id'));
       
         $product->nome = request('nome');
@@ -53,6 +53,19 @@ class ProductsController extends BaseController{
     
         $product->save();
         return redirect('home');
+    }*/
+
+    public function modify(){
+        return view('modifica')->with('id', request('id'));
+    }
+
+    public function modifyProduct($productId){
+        $product = Product::find($productId);
+        echo $product;
+        if (!$product) {
+            return response()->json(['error' => 'product not found'], 404);
+        }
+        return $product;
     }
 
     public function delete(){
