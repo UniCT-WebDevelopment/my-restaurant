@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-          <a class="nav-link fs-5 active" aria-current="page" id="home" href="home">Home</a>
+          <a class="nav-link fs-5 active" aria-current="page" id="home" href="prodotti">Prodotti</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5" href="orders">Ordini</a>
@@ -122,7 +122,7 @@
     </script>
 
     <script src="{{ asset('bootstrap-5.3.0-dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('scrip/home.js') }}"></script>
+    <script src="{{ asset('scrip/prodotti.js') }}"></script>
     
 </body>
 </html>

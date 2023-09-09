@@ -146,6 +146,11 @@ function productsResponse(response){
     return response.json();
 }
 
+const login = document.querySelector('#login');
+login.addEventListener('click', ()=>{
+    alert('ciao');
+});
+
 fetch(BASE_URL + 'menu/show/pizze').then(productsResponse).then(productsData);
 
 fetch(BASE_URL + 'menu/show/antipasti').then(productsResponse).then(show2);

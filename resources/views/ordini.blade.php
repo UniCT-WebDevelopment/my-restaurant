@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-          <a class="nav-link fs-5" aria-current="page" id="home" href="home">Home</a>
+          <a class="nav-link fs-5" aria-current="page" id="home" href="prodotti">Prodotti</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5 active" href="ordini">Ordini</a>

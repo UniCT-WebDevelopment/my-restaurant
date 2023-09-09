@@ -61,6 +61,9 @@
                 </button>
             </form>  
         </li>
+        <li class="nav-item d-flex justify-content-end">
+          <a class="nav-link fs-5" id="login" href="#">Login</a>
+        </li>
       </ul>
     </div>
   </div>

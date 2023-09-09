@@ -83,7 +83,10 @@ class LoginController extends BaseController{
             Session::put('user_id', $user->id);
             Session::put('user_tipo', $user->tipo);
             if($user->tipo == 'administrator'){
-                return redirect('home');
+                return redirect('prodotti');
+            }
+            if(Session::get('carrello')){
+                return redirect('menu/carrello');
             }
             return redirect('menu');
         }

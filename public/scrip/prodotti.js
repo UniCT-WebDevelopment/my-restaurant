@@ -73,7 +73,7 @@ function createProductCard(product){
     modifyButton.textContent = 'Modifica';
 
     modifyButton.addEventListener('click', ()=>{
-        formElement.action = BASE_URL + 'home/modifica';
+        formElement.action = BASE_URL + 'prodotti/modifica';
         formElement.submit();
         /*
         const currentURL = window.location.href; 

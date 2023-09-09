@@ -123,7 +123,7 @@ function createProductCard(product){
         modifyButton.addEventListener('click', function () {
             // Mostra la modal di conferma
             const modifyModal = document.querySelector('#modifyModal');
-            formElement.action = BASE_URL+'home/modifica/' + encodeURIComponent(product.id);;
+            formElement.action = BASE_URL+'prodotti/modifica/' + encodeURIComponent(product.id);;
     
             // Apri la modal di conferma
             const modal = new bootstrap.Modal(modifyModal);
@@ -170,7 +170,7 @@ function createProductCard(product){
     
     const id = document.getElementById('input');
     
-    fetch(BASE_URL + 'home/modifica/' +id.value).then(productsResponse).then(productsData);
+    fetch(BASE_URL + 'prodotti/modifica/' +id.value).then(productsResponse).then(productsData);
     
     
     

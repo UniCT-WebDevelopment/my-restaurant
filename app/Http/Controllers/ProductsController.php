@@ -10,11 +10,11 @@ use Session;
 
 class ProductsController extends BaseController{
 
-    public function home(){
+    public function prodotti(){
         if(!Session::get('user_id')){
             return [];
         }
-        return view('home');
+        return view('prodotti');
     }
 
     public function show_products(){
@@ -32,7 +32,7 @@ class ProductsController extends BaseController{
         if(strlen(request('nome')) ==0 || strlen(request('ingredienti')) ==0 ){
 
             Session::put('error', 'empty_fields');
-            return redirect('home')->withInput();
+            return redirect('prodotti')->withInput();
         }
         
 
@@ -56,7 +56,7 @@ class ProductsController extends BaseController{
                 $product->percorso_img = 'img/pizze/' . $imageName; // Salva il percorso dell'immagine
                 $product->save();
                 // Reindirizza l'utente alla pagina home o a un'altra pagina desiderata
-                return redirect('home');
+                return redirect('prodotti');
             
             }
         
@@ -125,7 +125,7 @@ class ProductsController extends BaseController{
         $product->save();
     
         // Reindirizza l'utente alla pagina home o a un'altra pagina desiderata
-        return redirect('home');
+        return redirect('prodotti');
     }
     
     
@@ -137,7 +137,7 @@ class ProductsController extends BaseController{
             $product->delete();
         }
     
-        return redirect('home');
+        return redirect('prodotti');
     }
    
 }

@@ -18,9 +18,7 @@ class CartController extends BaseController{
    }
 
     public function products(){
-        if(!Session::get('user_id')){
-            return redirect('login');
-        }
+        
         $userId = Session::get('user_id');
         $user = User::find($userId);
         
@@ -48,6 +46,9 @@ class CartController extends BaseController{
 
 
    public function save(){
+        if(!Session::get('user_id')){
+            return redirect('login');
+        }
         $carrello = request('carrello');
         $carrelloArray = explode(',', $carrello);
         $indirizzo = request('indirizzo');
