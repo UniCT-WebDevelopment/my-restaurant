@@ -93,3 +93,23 @@ function goBack() {
 
 const menu = document.getElementById("menu");
 menu.addEventListener('click',goBack);
+
+const login = document.querySelector('#login');
+login.addEventListener('click', ()=>{
+    window.location.href = '../login';
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('../isLogged')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        if (data === false) { // Controlla se la risposta è 'true' come stringa
+            const loginElement = document.getElementById('login');
+            loginElement.classList.remove('d-none');
+        }
+    })
+    .catch(error => {
+        console.error('Si è verificato un errore durante la verifica dello stato di accesso:', error);
+    });
+});

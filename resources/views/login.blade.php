@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-5.3.0-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stile/register.css') }}">
     <title>Login</title>
+
 </head>
 <body>
 
@@ -28,9 +29,13 @@
                         <input type="password" class="form-control" name="password" id="password" placeholder="Password" value='{{old("password")}}'>
                     </div>
 
+                    <div class="form-group mt-1 p-1 d-flex justify-content-around">
+                        <a id="registrati" class="btn btn-outline-dark">Registrati</a>
+                        <a id="menu" class="btn btn-outline-primary">Vai al menù</a>
+                    </div>
 
                     <div class="form-group p-1 mb-2">
-                        <a href="register" class="mb-5">Registrati</a>
+                        
                         <button type="submit" id="button" class="btn btn-success w-100 rounded-pill mt-2">Accedi</button>
                     </div>
 
@@ -51,5 +56,16 @@
 
 
     <script src="{{ asset('bootstrap-5.3.0-dist/js/bootstrap.min.js') }}"></script>
+    <script>
+        const menu = document.querySelector('#menu');
+        menu.addEventListener('click', ()=>{
+            window.location.href = 'menu';
+        });
+
+        const registrati = document.querySelector('#registrati');
+        registrati.addEventListener('click', ()=>{
+            window.location.href = 'register';
+        });
+    </script>
 </body>
 </html>

@@ -34,6 +34,9 @@
           <a class="nav-link fs-5" href="../logout">Logout</a>
         </li>
       </ul>
+      <li class="nav-item float-end me-2">
+          <button class="btn btn-success d-none" id="login">Login</button>
+      </li>
     </div>
   </div>
 </nav>

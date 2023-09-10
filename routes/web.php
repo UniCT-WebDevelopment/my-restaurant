@@ -12,6 +12,7 @@ Route::post('register', 'App\Http\Controllers\LoginController@do_register');
 Route::get('login', 'App\Http\Controllers\LoginController@login_form');
 Route::post('login', 'App\Http\Controllers\LoginController@do_login');
 Route::get('logout', 'App\Http\Controllers\LoginController@logout');
+Route::get('isLogged', 'App\Http\Controllers\LoginController@isLogged');
 
 Route::get('prodotti', 'App\Http\Controllers\ProductsController@prodotti');
 Route::get('products', 'App\Http\Controllers\ProductsController@show_products');

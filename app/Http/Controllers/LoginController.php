@@ -14,6 +14,14 @@ class LoginController extends BaseController{
         return view('register')->with('error', $error);
     }
 
+    public function isLogged(){
+        if (Session::get('user_id')) {
+            return response()->json(true); // L'utente è loggato
+        } else {
+            return response()->json(false); // L'utente non è loggato
+        }
+    }
+
     public function do_register(){
 
         if(strlen(request('nome')) == 0 || strlen(request('cognome')) ==0 || strlen(request('eta')) ==0 || strlen(request('n_telefono')) ==0 || strlen(request('indirizzo')) ==0 || strlen(request('username')) ==0 || strlen(request('password')) ==0 || strlen(request('confermaPassword')) ==0){
@@ -95,7 +103,7 @@ class LoginController extends BaseController{
 
     public function logout(){
         Session::flush();
-        return redirect('login');
+        return redirect('menu');
     }
    
 }

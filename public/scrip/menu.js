@@ -148,7 +148,7 @@ function productsResponse(response){
 
 const login = document.querySelector('#login');
 login.addEventListener('click', ()=>{
-    alert('ciao');
+    window.location.href = 'login';
 });
 
 fetch(BASE_URL + 'menu/show/pizze').then(productsResponse).then(productsData);
@@ -156,3 +156,20 @@ fetch(BASE_URL + 'menu/show/pizze').then(productsResponse).then(productsData);
 fetch(BASE_URL + 'menu/show/antipasti').then(productsResponse).then(show2);
 
 fetch(BASE_URL + 'menu/show/dessert').then(productsResponse).then(show3);
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch('isLogged')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        if (data === true) { // Controlla se la risposta è 'true' come stringa
+            const loginElement = document.getElementById('login');
+            loginElement.classList.add('d-none');
+        }
+    })
+    .catch(error => {
+        console.error('Si è verificato un errore durante la verifica dello stato di accesso:', error);
+    });
+});
+
+

@@ -18,7 +18,6 @@ class CartController extends BaseController{
    }
 
     public function products(){
-        
         $userId = Session::get('user_id');
         $user = User::find($userId);
         

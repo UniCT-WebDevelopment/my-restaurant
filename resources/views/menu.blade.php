@@ -61,10 +61,10 @@
                 </button>
             </form>  
         </li>
-        <li class="nav-item d-flex justify-content-end">
-          <a class="nav-link fs-5" id="login" href="#">Login</a>
-        </li>
       </ul>
+      <li class="nav-item float-end me-2">
+          <button class="btn btn-success" id="login">Login</button>
+      </li>
     </div>
   </div>
 </nav>
