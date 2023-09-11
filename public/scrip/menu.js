@@ -75,6 +75,8 @@ function createProductCard(product) {
 
     // n_prodotti
     const countElement = document.createElement('div');
+    countElement.id = "count" + product.id;
+    countElement.classList.add('countElement');
     countElement.textContent = '0';
     buttonsAndCountDiv.appendChild(countElement);
 
@@ -157,11 +159,11 @@ fetch(BASE_URL + 'menu/show/antipasti').then(productsResponse).then(show2);
 
 fetch(BASE_URL + 'menu/show/dessert').then(productsResponse).then(show3);
 
-document.addEventListener('DOMContentLoaded', function () {
+
     fetch('isLogged')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        console.log(carrello);
         if (data === true) { // Controlla se la risposta è 'true' come stringa
             const loginElement = document.getElementById('login');
             loginElement.classList.add('d-none');
@@ -170,6 +172,110 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
         console.error('Si è verificato un errore durante la verifica dello stato di accesso:', error);
     });
+
+
+let first = false;
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetch(BASE_URL + 'menu/getCart') .then(response => response.json()) .then(data => {
+        const prodottiCarrello = document.querySelector('#prodottiCarrello');
+        console.log(prodottiCarrello);
+        prodottiCarrello.value = data;
+        carrello = data.split(",");
+        //const cards = document.querySelectorAll('.card');
+
+        //console.log(cards);
+        // Per ogni card, aggiorna il countElement
+        carrello.forEach(card => {
+            const productId = card;
+            const countElement = document.getElementById('count'+ productId);
+            // Conta quante volte il prodotto appare nell'array "carrello"
+            const count = carrello.filter(id => id === productId).length;
+            console.log(count);
+            
+            // Aggiorna il countElement
+            countElement.textContent = count;
+        });
+        
+    })
+    .catch(error => {
+        console.error('Si è verificato un errore durante il recupero del carrello:', error);
+        if(!first){
+            first = true;
+            //location.reload();
+        }
+       
+    });
 });
+
+let isPageReloaded = false; // Variabile di controllo
+
+document.addEventListener('DOMContentLoaded', function () {
+    fetchCartData();
+
+    function fetchCartData() {
+        fetch(BASE_URL + 'menu/getCart')
+            .then(response => response.json())
+            .then(data => {
+                const prodottiCarrello = document.querySelector('#prodottiCarrello');
+        console.log(prodottiCarrello);
+        prodottiCarrello.value = data;
+        carrello = data.split(",");
+        //const cards = document.querySelectorAll('.card');
+
+        //console.log(cards);
+        // Per ogni card, aggiorna il countElement
+        carrello.forEach(card => {
+            const productId = card;
+            const countElement = document.getElementById('count'+ productId);
+            if(countElement == null){
+                location.reload();
+            }
+            // Conta quante volte il prodotto appare nell'array "carrello"
+            const count = carrello.filter(id => id === productId).length;
+            console.log(count);
+            
+            // Aggiorna il countElement
+            countElement.textContent = count;
+        });
+            })
+            .catch(error => {
+                console.error('Si è verificato un errore durante il recupero del carrello:', error);
+
+                
+            });
+    }
+});
+
+
+ /*window.onload =function(){
+
+    fetch(BASE_URL + 'menu/getCart') .then(response => response.json()) .then(data => {
+        carrello = data.split(",");
+        const cards = document.querySelectorAll('.card');
+
+        console.log(cards);
+        let i =0;
+        // Per ogni card, aggiorna il countElement
+        cards.forEach(card => {
+            const productId = card.dataset.id;
+            //console.log('count'+productId);
+            const countElement = document.getElementById('count'+ productId);
+            // Conta quante volte il prodotto appare nell'array "carrello"
+            const count = carrello.filter(id => id === productId).length;
+            
+            i=i+1;
+            // Aggiorna il countElement
+            countElement.textContent = count;
+        });
+        console.log(i);
+    })
+    .catch(error => {
+        console.error('Si è verificato un errore durante il recupero del carrello:', error);
+    });
+
+ };*/
+
+
 
 

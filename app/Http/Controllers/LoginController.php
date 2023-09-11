@@ -96,7 +96,7 @@ class LoginController extends BaseController{
             if(Session::get('carrello')){
                 return redirect('menu/carrello');
             }
-            return redirect('menu');
+            return view('menu');
         }
         
     }

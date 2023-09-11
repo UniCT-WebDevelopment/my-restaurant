@@ -25,6 +25,7 @@ Route::post('prodotti/modifica/{productId}', 'App\Http\Controllers\ProductsContr
 
 
 Route::get('menu', 'App\Http\Controllers\MenuController@menu');
+Route::get('menu/getCart', 'App\Http\Controllers\MenuController@getCart');
 Route::get('menu/show/pizze', 'App\Http\Controllers\MenuController@show_pizze');
 Route::get('menu/show/antipasti', 'App\Http\Controllers\MenuController@show_antipasti');
 Route::get('menu/show/dessert', 'App\Http\Controllers\MenuController@show_dessert');

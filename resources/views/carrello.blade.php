@@ -22,13 +22,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-          <a class="nav-link fs-5" aria-current="page" id="menu" href="#">Menu</a>
+          <a class="nav-link fs-5" id="menu" href="../menu">Menu</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" href="ordini">Ordini</a>
+          <a class="nav-link fs-5" href="../ordini">Ordini</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" href="user_chat">Chat</a>
+          <a class="nav-link fs-5" href="../user_chat">Chat</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5" href="../logout">Logout</a>
@@ -77,6 +77,8 @@
       });
       console.log('autocomplete');
   }
+
+  const menu = document.getElementById('menu');
 </script>
 
 <script src="{{ asset('bootstrap-5.3.0-dist/js/bootstrap.min.js') }}"></script>

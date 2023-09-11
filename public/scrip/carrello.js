@@ -91,13 +91,15 @@ function goBack() {
     window.history.back();
 }
 
-const menu = document.getElementById("menu");
-menu.addEventListener('click',goBack);
+/*const menu = document.getElementById("menu");
+menu.addEventListener('click',goBack);*/
 
 const login = document.querySelector('#login');
 login.addEventListener('click', ()=>{
     window.location.href = '../login';
 });
+
+console.log(carrello);
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('../isLogged')

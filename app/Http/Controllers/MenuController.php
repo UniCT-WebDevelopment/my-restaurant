@@ -29,13 +29,18 @@ class MenuController extends BaseController{
 
 
     public function add(){
-
         $carrello = request('prodottiCarrello');
-
+        
         session()->put('carrello',$carrello);
 
         return view('carrello');
     }
+
+    public function getCart() {
+        $cart = Session::get('carrello'); // Recupera il carrello dalla sessione, se non esiste usa un array vuoto
+        return response()->json($cart);
+    }
+    
     
 }
 

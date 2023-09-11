@@ -68,6 +68,7 @@ class CartController extends BaseController{
                 $order->products()->attach($product);
             }
         }
+        Session::forget('carrello');
         return redirect('menu');
     }
 }
