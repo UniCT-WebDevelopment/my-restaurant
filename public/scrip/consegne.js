@@ -83,8 +83,12 @@ function createTableRow(order) {
   trElement.appendChild(orderId);
 
   const userId = document.createElement('td');
-  userId.textContent = order.user_id;
+  userId.textContent = order.user.nome + ' ' + order.user.cognome;;
   trElement.appendChild(userId);
+
+  const telefono = document.createElement('td');
+  telefono.textContent = order.user.n_telefono;
+  trElement.appendChild(telefono);
 
   // Data
   const orderDate = document.createElement('td');

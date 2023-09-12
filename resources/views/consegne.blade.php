@@ -53,7 +53,8 @@
         <thead>
             <tr>
             <th scope="col">ID Ordine</th>
-            <th scope="col">ID Utente</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Telefono</th>
             <th scope="col">Data</th>
             <th scope="col">Stato</th>
             <th scope="col">Mappa</th>

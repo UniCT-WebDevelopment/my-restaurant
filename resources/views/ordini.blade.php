@@ -24,7 +24,7 @@
           <a class="nav-link fs-5" aria-current="page" id="home" href="prodotti">Prodotti</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5 active" href="ordini">Ordini</a>
+          <a class="nav-link fs-5 active" href="orders">Ordini</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5" href="chat">Chat</a>
@@ -48,7 +48,7 @@
         <thead>
             <tr>
             <th scope="col">ID Ordine</th>
-            <th scope="col">ID Utente</th>
+            <th scope="col">Cliente</th>
             <th scope="col">Prodotti</th>
             <th scope="col">Prezzo</th>
             <th scope="col">Data</th>

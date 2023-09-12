@@ -20,25 +20,31 @@ class OrderController extends BaseController{
 
     public function products(){
         $user_id = session()->get('user_id');
-
-        // Otteniamo ordini e relativi prodotti
-        $orders = Order::where('user_id', $user_id)->with('products')->orderByDesc('created_at')->get();
+    
+        // Otteniamo ordini e relativi prodotti con il nome e il cognome dell'utente
+        $orders = Order::where('user_id', $user_id)
+            ->with(['products', 'user:id,nome,cognome']) // Seleziona solo i campi nome e cognome dalla tabella users
+            ->orderByDesc('created_at')
+            ->get();
     
         $orders->transform(function ($order) {
             $productNames = $order->products->pluck('nome')->toArray();
             $order->product_names = $productNames;
             unset($order->products);
+    
             // Calcola la somma dei prezzi dei prodotti per ciascun ordine
             $totalPrice = 0;
             foreach ($order->products as $product) {
                 $totalPrice += (float) str_replace(',', '.', $product->prezzo);
             }
             $order->total_price = $totalPrice;
+    
             return $order;
         });
     
         return $orders;
     }
+    
 
     public function deleteOrder(){
         $order = request('order');
@@ -61,7 +67,7 @@ class OrderController extends BaseController{
             Session::flush();
             return redirect('login');
         }
-        return redirect('ordini');
+        return view('ordini');
     }
 
     public function allOrders() {

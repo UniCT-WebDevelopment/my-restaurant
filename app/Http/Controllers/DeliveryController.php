@@ -21,9 +21,14 @@ class DeliveryController extends BaseController{
    }
 
    public function getDeliveryOrders(){
-      $ordini = Order::whereIn('stato', ['pronto', 'in consegna'])->orderByDesc('created_at')->get();;
-      return $ordini;
-   }
+    $ordini = Order::whereIn('stato', ['pronto', 'in consegna'])
+        ->with(['user:id,nome,cognome,n_telefono']) // Seleziona solo i campi desiderati dalla tabella users
+        ->orderByDesc('created_at')
+        ->get();
+
+    return $ordini;
+}
+
 
     public function changeState(){
         $orderId = request('order_id');

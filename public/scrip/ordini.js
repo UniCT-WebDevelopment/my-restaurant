@@ -25,7 +25,8 @@ function formatDateTime(dateTimeStr) {
     trElement.appendChild(productId);
 
     const userId = document.createElement('td');
-    userId.textContent = product.user_id;
+    let s = product.user.nome + ' ' + product.user.cognome;
+    userId.textContent = s;
     trElement.appendChild(userId);
 
     // Nome dei prodotti
