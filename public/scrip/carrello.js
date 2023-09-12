@@ -67,25 +67,6 @@ function createProductCard(product) {
             console.log(cart.value);
         }
     });
-   
-
-    /*removeButton.addEventListener('click', () => {
-        const productId = product.id;
-        let s = 'card' + productId;
-        const elementToRemove = document.querySelector('.'+productId);
-        console.log(elementToRemove);
-        if (elementToRemove) {
-            elementToRemove.remove(); // Rimuovi l'elemento HTML
-        }
-    
-        const index = carrello.indexOf(productId);
-        if (index !== -1) {
-            carrello.splice(index, 1); // Rimuovi l'id dall'array "carrello"
-            const cart = document.getElementById('carrello');
-            cart.value = carrello;
-            console.log(cart.value);
-        }
-    });*/
     
     
     cardBodyElement.appendChild(removeButton);
@@ -126,7 +107,7 @@ function productsResponse(response){
     return response.json();
 }
 
-function removeProduct(){
+/*function removeProduct(){
     carrello.forEach(productId => {
         let selector = '.remove' + productId;
         const removeButton = document.querySelector(selector);
@@ -154,9 +135,9 @@ function removeProduct(){
             });
         }
     });
-}
+}*/
 
-fetch(BASE_URL + 'menu/carrello/products').then(productsResponse).then(productsData).then(removeProduct);
+fetch(BASE_URL + 'menu/carrello/products').then(productsResponse).then(productsData);
 
 
 const login = document.querySelector('#login');
