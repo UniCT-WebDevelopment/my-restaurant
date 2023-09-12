@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-          <a class="nav-link fs-5" id="menu" href="../menu">Menu</a>
+          <a class="nav-link fs-5" id="menu" href="#">Menu</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5" href="../ordini">Ordini</a>
@@ -54,9 +54,9 @@
 
 
 <div class="container mt-4 d-flex justify-content-center align-items-center mb-5">
-  <form action="carrello/save" method="post" class="d-flex flex-column justify-content-center">
+  <form action="carrello/save" id="form" method="post" class="d-flex flex-column justify-content-center">
     @csrf
-    <input type="text" name="carrello" id="carrello" class="d-none">
+    <input type="text" name="carrello" id="carrello" class="">
     <h4>Indirizzo di consegna</h4>
     <input type="text" name="indirizzo" id="indirizzo" class="rounded">
     <button type="submit" class="btn btn-success d-block mt-2">Invia ordine</button>

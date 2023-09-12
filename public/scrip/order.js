@@ -47,7 +47,7 @@ function formatDateTime(dateTimeStr) {
     const orderStatus = document.createElement('td');
     orderStatus.textContent = product.stato;
     trElement.appendChild(orderStatus);
-
+ 
     return trElement;
 }
 

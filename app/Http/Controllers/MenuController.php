@@ -40,6 +40,14 @@ class MenuController extends BaseController{
         $cart = Session::get('carrello'); // Recupera il carrello dalla sessione, se non esiste usa un array vuoto
         return response()->json($cart);
     }
+
+    public function updateCart() {
+            Session::forget('carrello');
+        
+        $carrello = request('carrello');
+        session()->put('carrello',$carrello);
+        return redirect('menu');
+    }
     
     
 }
