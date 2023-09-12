@@ -38,6 +38,7 @@ Route::post('menu/carrello/save', 'App\Http\Controllers\CartController@save');
 
 Route::get('ordini', 'App\Http\Controllers\OrderController@show');
 Route::get('ordini/products', 'App\Http\Controllers\OrderController@products');
+Route::post('ordini/deleteOrder', 'App\Http\Controllers\OrderController@deleteOrder');
 
 Route::get('orders', 'App\Http\Controllers\OrderController@show_orders');
 Route::get('orders/products', 'App\Http\Controllers\OrderController@allOrders');

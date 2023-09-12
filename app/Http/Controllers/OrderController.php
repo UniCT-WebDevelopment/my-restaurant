@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\Product;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
+
 use Session;
 
 class OrderController extends BaseController{
@@ -38,6 +40,19 @@ class OrderController extends BaseController{
         return $orders;
     }
 
+    public function deleteOrder(){
+        $order = request('order');
+    
+        // Elimina le righe dalla tabella order_product
+        DB::table('order_product')->where('order_id', $order)->delete();
+    
+        // Elimina la riga dalla tabella order
+        DB::table('orders')->where('id', $order)->delete();
+    
+        return view('order'); // Reindirizza alla pagina desiderata dopo l'eliminazione
+    }
+    
+
     //administrator page
     public function show_orders(){
         if(!Session::get('user_id')){
@@ -46,7 +61,7 @@ class OrderController extends BaseController{
             Session::flush();
             return redirect('login');
         }
-        return view('ordini');
+        return redirect('ordini');
     }
 
     public function allOrders() {

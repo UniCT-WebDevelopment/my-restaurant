@@ -54,7 +54,7 @@ class CartController extends BaseController{
 
         // Creazione del nuovo ordine
         $order = new Order();
-        $order->stato = 'inviato';
+        $order->stato = 'Inviato';
         $order->indirizzo = $indirizzo;
         $order->tipo = 'consegna';
         $order->user_id = Session::get('user_id');

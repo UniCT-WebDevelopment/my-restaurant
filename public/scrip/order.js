@@ -47,7 +47,64 @@ function formatDateTime(dateTimeStr) {
     const orderStatus = document.createElement('td');
     orderStatus.textContent = product.stato;
     trElement.appendChild(orderStatus);
- 
+
+    if(product.stato == 'Inviato' || product.stato == 'In preparazione'){
+        const deleteButton = document.createElement('button');
+        deleteButton.type = 'button';
+        deleteButton.classList.add('btn', 'btn-danger', 'mt-2', 'mb-2');
+        deleteButton.style.backgroundColor = 'red';
+        deleteButton.style.color = 'white';
+        deleteButton.textContent = 'Elimina';
+        deleteButton.setAttribute('data-toggle', 'modal'); // Aggiungi l'attributo data-toggle
+        deleteButton.setAttribute('data-target', '#deleteModal');
+
+        deleteButton.addEventListener('click', () => {
+            // Mostra la modal di conferma
+            const deleteModal = document.querySelector('#deleteModal');
+
+            // Apri la modal di conferma
+            const modal = new bootstrap.Modal(deleteModal);
+            modal.show();
+
+            // Aggiungi un event listener per l'azione di eliminazione effettiva
+            const confirmDeleteButton = document.querySelector('#confirmDelete');
+            confirmDeleteButton.addEventListener('click', function () {
+                if (confirmDelete) {
+                    // Creazione del form
+                    const form = document.createElement('form');
+                    form.method = 'post';
+                    form.action = BASE_URL + 'ordini/deleteOrder';
+                
+                    // Creazione dell'input text
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.name = 'order'; // Nome dell'input, utilizzato come chiave nel server
+                    input.value = product.id; // Valore dell'input
+                    // CSFR
+                    const csrfField = document.createElement('input');
+                    csrfField.type = 'hidden';
+                    csrfField.name = '_token'; // Assicurati che il nome sia '_token' per essere compatibile con Laravel
+                    csrfField.value = window.csrfToken; // Questo inserisce il token CSRF generato da Laravel nel campo
+                
+                    // Aggiungere l'input al form
+                    form.appendChild(csrfField);
+                    form.appendChild(input);
+                    
+                    // Aggiungere il form al documento (per renderlo visibile e inviare)
+                    document.body.appendChild(form);
+                    
+                    // Invio automatico del form
+                    form.submit();
+                }
+            });
+        });
+        trElement.appendChild(deleteButton);
+    }
+    else{
+        const testo = document.createElement('p');
+        testo.textContent = "Eliminazione non disponibile"
+        trElement.appendChild(testo);
+    }
     return trElement;
 }
 
