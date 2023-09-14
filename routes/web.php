@@ -60,6 +60,10 @@ Route::get('consegne/ordini', 'App\Http\Controllers\DeliveryController@getDelive
 Route::post('consegne/changeState', 'App\Http\Controllers\DeliveryController@changeState');
 Route::get('consegne/openModal/{order_id}', 'App\Http\Controllers\DeliveryController@openModal');
 
-
+Route::get('settings', 'App\Http\Controllers\SettingsController@show');
+Route::post('settings/addSlide', 'App\Http\Controllers\SettingsController@addSlide');
+Route::get('settings/getSlides', 'App\Http\Controllers\SettingsController@getSlides');
+Route::post('settings/selectSlide', 'App\Http\Controllers\SettingsController@selectSlide');
+Route::post('settings/unselectSlide', 'App\Http\Controllers\SettingsController@unselectSlide');
 
 

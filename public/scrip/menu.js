@@ -103,14 +103,14 @@ function createProductCard(product) {
 }
 
 
-function show(data){
+function show4(dati){
     const cardsContainer = document.querySelector('#cardsContainer');
     //cardsContainer.innerHTML = '';
-    if(data.length == 0){
+    if(dati.length == 0){
         cardsContainer.textContent = 'Nessuna prodotto';
         return;
     }
-    for(product of data){
+    for(product of dati){
         cardsContainer.append(createProductCard(product));
     }
 }
@@ -141,7 +141,7 @@ function show3(data){
 
 
 function productsData(data){
-    show(data);
+    show4(data);
 }
 
 function productsResponse(response){

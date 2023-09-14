@@ -10,25 +10,10 @@
     <link rel="stylesheet" href="{{ asset('bootstrap-5.3.0-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('stile/prova.css') }}">
 
-    <style>
-  /* Stile per gli indicatori bianchi */
-  .carousel-indicators button {
-    background-color: white;
-    border: none;
-  }
-  
-  /* Stile per l'indicatore attivo */
-  .carousel-indicators button.active {
-    background-color: white;
-    opacity: 1;
-  }
-</style>
-
-
 </head>
 <body>
 
-
+<!-- Navbar -->
 <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -69,51 +54,19 @@
   </div>
 </nav>
 
-
-<div id="carouselExampleDark" class="carousel carousel-dark slide d-flex justify-content-center" style="margin-top: 96px" data-bs-ride="carousel">
+<!-- Carousel -->
+<div id="carouselExampleCaptions" class="carousel slide" style="margin-top: 96px"  data-bs-ride="carousel">
   <div class="carousel-indicators">
-  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active bg-light" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" class="bg-light" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" class="bg-light" aria-label="Slide 3"></button>
+    
   </div>
-  <div class="carousel-inner" style="max-width: 100%">
-
-    <div class="carousel-item active" style="height: 88vh; background-image: url('img/sfondo/c2.jpg'); background-size: cover; background-position: center center">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 class="text-light">Ingredienti a km zero</h5>
-        <p class="text-light">
-          Tutti gli ingredienti che utilizziamo sono freschi al 100%.
-          La salsa di pomodoro è fatta in casa con pomodori di zona e il basilico fresco
-          viene direttamente dal nostro orto
-        </p>
-      </div>
-    </div>
-
-    <div class="carousel-item" style="height: 88vh; background-image: url('img/sfondo/c1.jpg'); background-size: cover; background-position: center center">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 class="text-light">Impasto con 72h di lievitazione</h5>
-        <p class="text-light">
-          Il nostro impasto è altamente digeribile grazie alla lunga lievitazione, in più
-          i 3 tipi diversi di farina utilizzati, gli conferiscono un sapore unico
-        </p>
-      </div>
-    </div>
-
-    <div class="carousel-item" style="height: 88vh; background-image: url('img/sfondo/c3.jpg'); background-size: cover; background-position: center center">
-      <div class="carousel-caption d-none d-md-block">
-        <h5 class="text-light">Menù sempre aggiornato</h5>
-        <p class="text-light">
-          Aggiorniamo di continuo il nostro menù inserendo nuove pizze realizzate con ingredienti 
-          di stagione. Vieni a provare le nostre specialità
-        </p>
-      </div>
-    </div>
+  <div class="carousel-inner">
+    
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
@@ -121,7 +74,6 @@
 
 
 <!-- Card -->
-
 <div class="d-flex justify-content-center mt-5">
     <h1>Antipasti</h1>
   </div>
@@ -151,6 +103,7 @@
 
     <script src="{{ asset('bootstrap-5.3.0-dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('scrip/menu.js') }}"></script>
+    <script src="{{ asset('scrip/settings.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 </body>

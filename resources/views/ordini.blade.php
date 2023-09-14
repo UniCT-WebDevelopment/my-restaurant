@@ -33,6 +33,9 @@
           <a class="nav-link fs-5" href="consegne">Consegne</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link fs-5" href="settings">Impostazioni</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link fs-5" href="logout">Logout</a>
         </li>
       </ul>

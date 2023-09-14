@@ -13,7 +13,7 @@
 <body>
 
 
-<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"><
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <img src="{{ url('img/logo/pizza.png') }}" alt="Logo" style="width:80px; height: 80px">
@@ -33,6 +33,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5" href="consegne">Consegne</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-5" href="settings">Impostazioni</a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-5" href="logout">Logout</a>
