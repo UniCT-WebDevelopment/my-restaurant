@@ -20,13 +20,14 @@ function createSlide(slide, index) {
     carouselCaption.classList.add('carousel-caption', 'd-none', 'd-md-block');
 
     // Aggiungi il titolo
-    const title = document.createElement('h5');
+    const title = document.createElement('h2');
     title.classList.add('text-light');
     title.textContent = slide.titolo;
 
     // Aggiungi il testo
     const text = document.createElement('p');
     text.classList.add('text-light');
+    text.style.fontSize = '24px';
     text.textContent = slide.testo;
 
     // Aggiungi il titolo e il testo all'elemento "carousel-caption"
