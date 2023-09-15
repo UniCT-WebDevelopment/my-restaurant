@@ -80,7 +80,6 @@ function createCarouselIndicators(slides) {
     const slidesFiltrati = slides.filter(slide => slide.is_used === 1);
 
     slidesFiltrati.forEach((slide, index) => {
-        console.log(slide);
         const indicatorButton = document.createElement('button');
         indicatorButton.type = 'button';
         indicatorButton.setAttribute('data-bs-target', '#carouselExampleCaptions');

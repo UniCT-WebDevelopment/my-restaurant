@@ -103,15 +103,37 @@ function createProductCard(product) {
 }
 
 
-function show4(dati){
-    const cardsContainer = document.querySelector('#cardsContainer');
-    //cardsContainer.innerHTML = '';
-    if(dati.length == 0){
-        cardsContainer.textContent = 'Nessuna prodotto';
-        return;
-    }
-    for(product of dati){
-        cardsContainer.append(createProductCard(product));
+function show4(dati) {
+    const categoriesContainer = document.querySelector('#categorieContainer');
+    categoriesContainer.innerHTML = ''; // Pulizia del contenuto precedente
+
+    for (const categoria in dati) {
+        if (dati.hasOwnProperty(categoria)) {
+            // Creazione del container per la categoria
+            const categoryContainer = document.createElement('div');
+            categoryContainer.classList.add('category-container', 'd-flex', 'justify-content-center', 'mb-4');
+
+            // Creazione dell'elemento <h1> con il nome della categoria
+            const categoryTitle = document.createElement('h1');
+            categoryTitle.textContent = categoria.toUpperCase();
+            categoryContainer.appendChild(categoryTitle);
+
+            // Creazione del container per le card della categoria
+            const cardsContainer = document.createElement('div');
+            cardsContainer.classList.add('cards-container', 'd-flex', 'justify-content-around', 'flex-wrap','mb-4');
+
+            // Iterazione sui prodotti della categoria e creazione delle card
+            for (const product of dati[categoria]) {
+                const productCard = createProductCard(product);
+                cardsContainer.appendChild(productCard);
+            }
+
+            // Aggiunta delle card al container della categoria
+
+            // Aggiunta del container della categoria al contenitore principale
+            categoriesContainer.appendChild(categoryContainer);
+            categoriesContainer.appendChild(cardsContainer);
+        }
     }
 }
 
@@ -153,11 +175,11 @@ login.addEventListener('click', ()=>{
     window.location.href = 'login';
 });
 
-fetch(BASE_URL + 'menu/show/pizze').then(productsResponse).then(productsData);
+fetch(BASE_URL + 'getCategories').then(productsResponse).then(productsData);
 
-fetch(BASE_URL + 'menu/show/antipasti').then(productsResponse).then(show2);
+// fetch(BASE_URL + 'menu/show/antipasti').then(productsResponse).then(show2);
 
-fetch(BASE_URL + 'menu/show/dessert').then(productsResponse).then(show3);
+// fetch(BASE_URL + 'menu/show/dessert').then(productsResponse).then(show3);
 
 
     fetch('isLogged')

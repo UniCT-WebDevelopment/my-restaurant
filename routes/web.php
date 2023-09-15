@@ -17,7 +17,6 @@ Route::get('isLogged', 'App\Http\Controllers\LoginController@isLogged');
 Route::get('prodotti', 'App\Http\Controllers\ProductsController@prodotti');
 Route::get('products', 'App\Http\Controllers\ProductsController@show_products');
 Route::post('prodotti', 'App\Http\Controllers\ProductsController@add');
-//Route::post('update', 'App\Http\Controllers\ProductsController@modify');
 Route::post('delete', 'App\Http\Controllers\ProductsController@delete');
 Route::post('prodotti/modifica', 'App\Http\Controllers\ProductsController@modify');
 Route::get('prodotti/modifica/{productId}', 'App\Http\Controllers\ProductsController@modifyProduct');
@@ -65,5 +64,10 @@ Route::post('settings/addSlide', 'App\Http\Controllers\SettingsController@addSli
 Route::get('settings/getSlides', 'App\Http\Controllers\SettingsController@getSlides');
 Route::post('settings/selectSlide', 'App\Http\Controllers\SettingsController@selectSlide');
 Route::post('settings/unselectSlide', 'App\Http\Controllers\SettingsController@unselectSlide');
+Route::get('getCategories', 'App\Http\Controllers\SettingsController@getCategories');
+Route::get('settings/selectCategories', 'App\Http\Controllers\SettingsController@selectCategories');
+Route::post('settings/deleteCategories', 'App\Http\Controllers\SettingsController@deleteCategories');
+Route::post('settings/activateCategories', 'App\Http\Controllers\SettingsController@activateCategories');
+
 
 

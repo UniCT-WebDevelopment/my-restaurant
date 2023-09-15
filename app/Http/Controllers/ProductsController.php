@@ -128,7 +128,6 @@ class ProductsController extends BaseController{
         return redirect('prodotti');
     }
     
-    
 
     public function delete(){
         $product = Product::find(request('id'));

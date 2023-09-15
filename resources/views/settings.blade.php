@@ -87,7 +87,6 @@
 </div>
 
 
-
 <div class="container w-75 mb-5">
     <table class="table">
         <thead>
@@ -96,6 +95,20 @@
             <th scope="col">Titolo</th>
             <th scope="col">Testo</th>
             <th scope="col">Utilizza</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</div>
+
+<div class="container w-75 mb-5">
+    <table class="categoriesTable">
+        <thead>
+            <tr>
+            <th scope="col">Categoria</th>
+            <th scope="col">Azione</th>
             </tr>
         </thead>
         <tbody>
@@ -131,7 +144,8 @@
 </script>
    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-<script src="scrip/settings.js"></script>
+<script src="scrip/slider.js"></script>
+<script src="scrip/categorie.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     

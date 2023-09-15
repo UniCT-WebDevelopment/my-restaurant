@@ -6,6 +6,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Models\Slide;
+use App\Models\Product;
 use Session;
 
 class SettingsController extends BaseController{
@@ -84,6 +85,54 @@ class SettingsController extends BaseController{
 
         return redirect('settings');
     }
+
+    
+    public function getCategories(){
+        // $categories = Product::distinct()->pluck('categoria')->toArray();
+        // return $categories;
+        $productsGrouped = Product::all()->groupBy('categoria');
+
+        return $productsGrouped;
+    }
+
+    public function selectCategories() {
+        $categories = Product::withTrashed()->distinct()->pluck('categoria')->toArray();
+
+    
+        $categoriesWithStatus = [];
+        
+        foreach ($categories as $categoria) {
+            $hasActiveProducts = Product::where('categoria', $categoria)->exists();
+            $categoriesWithStatus[] = [
+                'categoria' => $categoria,
+                'hasActiveProducts' => $hasActiveProducts,
+            ];
+        }
+        //dd ($categoriesWithStatus);
+    
+        return response()->json($categoriesWithStatus);
+    }
+
+    public function deleteCategories() {
+        $categoria = request('categoria');
+        
+        // Esegui il soft delete di tutti i prodotti con la categoria specifica
+        Product::where('categoria', $categoria)->delete();
+
+        return redirect('settings');
+        
+    }
+
+    public function activateCategories() {
+        $categoria = request('categoria');
+        
+        Product::withTrashed()->where('categoria', $categoria)->restore();
+
+
+        return redirect('settings');
+        
+    }
+    
    
 }
 

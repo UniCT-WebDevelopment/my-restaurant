@@ -72,8 +72,10 @@
   </button>
 </div>
 
+<div id="categorieContainer" class="mt-5"></div>
 
-<!-- Card -->
+<!-- 
+
 <div class="d-flex justify-content-center mt-5">
     <h1>Antipasti</h1>
   </div>
@@ -90,7 +92,7 @@
     <h1>Dessert</h1>
 </div>
 <div id="cardsContainer3" class="container d-flex flex-wrap mt-4 justify-content-around">
-</div>
+</div> -->
 
 
 
@@ -103,7 +105,7 @@
 
     <script src="{{ asset('bootstrap-5.3.0-dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('scrip/menu.js') }}"></script>
-    <script src="{{ asset('scrip/settings.js') }}"></script>
+    <script src="{{ asset('scrip/slider.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 </body>
