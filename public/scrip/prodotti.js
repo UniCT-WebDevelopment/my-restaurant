@@ -13,7 +13,7 @@ function createProductCard(product){
 
     // Immagine
     const imgElement = document.createElement('img');
-    imgElement.src = product.percorso_img;
+    imgElement.src = BASE_URL + product.percorso_img;
     imgElement.style.width = '100%'; // Immagine si adatta alla larghezza del div
     imgElement.style.height = '100%'; // Immagine si adatta all'altezza del div
     imgElement.classList.add('card-img-top');

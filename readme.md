@@ -1,10 +1,10 @@
-# Progetto Pizzeria
+# myRestaurant
 
-Questo è un progetto Laravel per la gestione di una pizzeria.
+Questo è un progetto Laravel per la gestione di un ristorante.
 
 ## Requisiti
 
-Prima di iniziare, assicurati di aver soddisfatto i seguenti requisiti:
+Prima di iniziare, assicurati di aver soddisfatto i seguenti requisiti: web server e composer.
 
 - [XAMPP](https://www.apachefriends.org/index.html) con PHP versione 8.2.4
 - [Composer](https://getcomposer.org/download/) versione 2.5.8
@@ -18,9 +18,9 @@ Prima di iniziare, assicurati di aver soddisfatto i seguenti requisiti:
 3. Apri XAMPP e avvia i servizi Apache e MySQL.
 
 4. Importa il database:
-   - Prendi il file SQL del database "pizzeria.sql".
+   - Prendi il file SQL del database "database.sql".
    - Accedi a PHPMyAdmin (solitamente http://localhost/phpmyadmin).
-   - Crea un nuovo database chiamato "pizzeria".
+   - Crea un nuovo database, chiamalo come vuoi, ad esempio "myRestaurant".
    - Seleziona il database "pizzeria" e fai clic sulla scheda "Importa".
    - Carica il file SQL precedentemente scaricato e avvia l'importazione.
 
@@ -34,31 +34,23 @@ Prima di iniziare, assicurati di aver soddisfatto i seguenti requisiti:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=pizzeria
+DB_DATABASE= NOME_DATABASE
 DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-8. Genera la chiave dell'applicazione:
-`php artisan key:generate`
 
-9. Configura le credenziali del database nel file `.env`.
-
-10. Esegui le migrazioni per creare le tabelle del database:
- ```
- php artisan migrate
- ```
-
-11. Avvia il server locale di Laravel:
+8. Avvia il server locale di Laravel:
  ```
  php artisan serve
  ```
+ Oppure riavvia il server di xampp.
 
 12. Ora puoi accedere all'applicazione tramite il browser all'indirizzo [http://localhost:8000](http://localhost:8000).
 
 ## Utilizzo
 
-- Accedi all'applicazione e inizia a gestire i prodotti, gli ordini e le consegne.
+- Accedi all'applicazione e inizia a gestire il tuo ristorante.
 
 ## Autore
 Giuseppe Pisasale
