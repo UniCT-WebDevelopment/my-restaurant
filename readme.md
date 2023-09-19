@@ -39,8 +39,12 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
+8. Genera la chiave dell'applicazione:
+ ```
+ php artisan key:generate
+  ```
 
-8. Avvia il server locale di Laravel:
+9. Avvia il server locale di Laravel:
  ```
  php artisan serve
  ```
