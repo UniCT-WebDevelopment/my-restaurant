@@ -12,7 +12,7 @@ function createMessage(message) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('message');
 
-    if (message.user_id === 17) {
+    if (message.user_id === 1) {
         messageElement.classList.add('my_message');
     } else {
         messageElement.classList.add('frnd_message');

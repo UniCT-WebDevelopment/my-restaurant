@@ -85,7 +85,7 @@ class ChatController extends BaseController{
     public function getChatsWithLastMessage(){
         $subquery = DB::table('messages')
             ->select('chat_id', DB::raw('MAX(created_at) as max_created_at'))
-            ->where('user_id', '<>', 17)
+            ->where('user_id', '<>', 1)
             ->groupBy('chat_id');
     
         $chats = Chat::select(
@@ -93,9 +93,9 @@ class ChatController extends BaseController{
             'chats.created_at',
             'chats.updated_at',
             DB::raw('(SELECT testo FROM messages WHERE chat_id = chats.id ORDER BY created_at DESC LIMIT 1) as last_message'),
-            DB::raw('(SELECT user_id FROM messages WHERE chat_id = chats.id AND user_id <> 17 ORDER BY created_at DESC LIMIT 1) as user_id'),
-            DB::raw('(SELECT nome FROM users WHERE id = (SELECT user_id FROM messages WHERE chat_id = chats.id AND user_id <> 17 ORDER BY created_at DESC LIMIT 1)) as user_nome'),
-            DB::raw('(SELECT cognome FROM users WHERE id = (SELECT user_id FROM messages WHERE chat_id = chats.id AND user_id <> 17 ORDER BY created_at DESC LIMIT 1)) as user_cognome')
+            DB::raw('(SELECT user_id FROM messages WHERE chat_id = chats.id AND user_id <> 1 ORDER BY created_at DESC LIMIT 1) as user_id'),
+            DB::raw('(SELECT nome FROM users WHERE id = (SELECT user_id FROM messages WHERE chat_id = chats.id AND user_id <> 1 ORDER BY created_at DESC LIMIT 1)) as user_nome'),
+            DB::raw('(SELECT cognome FROM users WHERE id = (SELECT user_id FROM messages WHERE chat_id = chats.id AND user_id <> 1 ORDER BY created_at DESC LIMIT 1)) as user_cognome')
         )
         ->orderBy('chats.updated_at', 'desc')
         ->get();
