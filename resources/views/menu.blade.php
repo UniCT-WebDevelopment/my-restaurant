@@ -16,7 +16,7 @@
 <!-- Navbar -->
 <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Pizzeria</a>
     <img src="{{ url('img/logo/pizza.png') }}" alt="Logo" style="width:80px; height: 80px">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -33,9 +33,6 @@
           <a class="nav-link fs-5" href="user_chat">Chat</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link fs-5" href="logout">Logout</a>
-        </li>
-        <li class="nav-item">
             <form method="post" action="menu/carrello">
                 @csrf
                 <input type="text" name="prodottiCarrello" id="prodottiCarrello" class="d-none">
@@ -47,7 +44,7 @@
             </form>  
         </li>
       </ul>
-      <li class="nav-item float-end me-2">
+      <li class="nav-item float-end me-2" id="btn-logout">
           <button class="btn btn-success" id="login">Login</button>
       </li>
     </div>

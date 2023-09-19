@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return 'Hello World from laravel';
+    return 'Hello world';
 });
 
 Route::get('register', 'App\Http\Controllers\LoginController@register_form');

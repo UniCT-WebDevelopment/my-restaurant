@@ -103,7 +103,7 @@ class LoginController extends BaseController{
 
     public function logout(){
         Session::flush();
-        return redirect('menu');
+        return redirect('login');
     }
    
 }

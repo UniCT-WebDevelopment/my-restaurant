@@ -164,6 +164,24 @@ document.addEventListener('DOMContentLoaded', function () {
         if (data === false) { // Controlla se la risposta è 'true' come stringa
             const loginElement = document.getElementById('login');
             loginElement.classList.remove('d-none');
+        } else{
+            // Crea un elemento button
+            const eliminaButton = document.createElement('button');
+
+            // Aggiungi le classi al pulsante
+            eliminaButton.classList.add('btn', 'btn-danger');
+
+            // Imposta il testo del pulsante
+            eliminaButton.textContent = 'Logout';
+
+            // Aggiungi un event listener per il click
+            eliminaButton.addEventListener('click', function() {
+                // Reindirizza a 'logout' quando il pulsante viene cliccato
+                window.location.href = '../logout';
+            });
+            const btnLogout = document.querySelector('#btn-logout');
+            console.log(btnLogout);
+            btnLogout.appendChild(eliminaButton);
         }
 
     })

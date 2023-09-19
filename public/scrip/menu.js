@@ -137,29 +137,6 @@ function show4(dati) {
     }
 }
 
-function show2(data){
-    const cardsContainer = document.querySelector('#cardsContainer2');
-    //cardsContainer.innerHTML = 'Antipasti';
-    if(data.length == 0){
-        cardsContainer.textContent = 'Nessuna prodotto';
-        return;
-    }
-    for(product of data){
-        cardsContainer.append(createProductCard(product));
-    }
-}
-
-function show3(data){
-    const cardsContainer = document.querySelector('#cardsContainer3');
-    //cardsContainer.innerHTML = 'Antipasti';
-    if(data.length == 0){
-        cardsContainer.textContent = 'Nessuna prodotto';
-        return;
-    }
-    for(product of data){
-        cardsContainer.append(createProductCard(product));
-    }
-}
 
 
 function productsData(data){
@@ -177,11 +154,6 @@ login.addEventListener('click', ()=>{
 
 fetch(BASE_URL + 'getCategories').then(productsResponse).then(productsData);
 
-// fetch(BASE_URL + 'menu/show/antipasti').then(productsResponse).then(show2);
-
-// fetch(BASE_URL + 'menu/show/dessert').then(productsResponse).then(show3);
-
-
     fetch('isLogged')
     .then(response => response.json())
     .then(data => {
@@ -189,6 +161,24 @@ fetch(BASE_URL + 'getCategories').then(productsResponse).then(productsData);
         if (data === true) { // Controlla se la risposta è 'true' come stringa
             const loginElement = document.getElementById('login');
             loginElement.classList.add('d-none');
+
+            // Crea un elemento button
+            const eliminaButton = document.createElement('button');
+
+            // Aggiungi le classi al pulsante
+            eliminaButton.classList.add('btn', 'btn-danger');
+
+            // Imposta il testo del pulsante
+            eliminaButton.textContent = 'Logout';
+
+            // Aggiungi un event listener per il click
+            eliminaButton.addEventListener('click', function() {
+                // Reindirizza a 'logout' quando il pulsante viene cliccato
+                window.location.href = 'logout';
+            });
+            const btnLogout = document.querySelector('#btn-logout');
+            console.log(btnLogout);
+            btnLogout.appendChild(eliminaButton);
         }
     })
     .catch(error => {
